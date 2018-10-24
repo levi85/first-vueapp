@@ -1,37 +1,28 @@
 <template>
   <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-toolbar>
+    <div id=app>
+      <DesertList v-bind:is-visible="showCommand"></DesertList>
 
-    <v-content>
-      <HelloWorld/>
-    </v-content>
+      <v-switch
+        v-model="showCommand"
+        color="red darken-4"
+        label="Toggle Show"
+      ></v-switch>
+    </div>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import DesertList from './components/DesertList'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    DesertList
   },
   data () {
     return {
-      //
+      showCommand: true,
     }
   }
 }
